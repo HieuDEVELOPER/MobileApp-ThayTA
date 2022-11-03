@@ -1,4 +1,5 @@
 import DiabetesScreen from "./Diabetes";
 import HomeScreen from "./Home";
 import ProfileScreen from "./Profile";
-export {HomeScreen, DiabetesScreen, ProfileScreen};
+import MapScreen from "./Map";
+export {HomeScreen, DiabetesScreen, ProfileScreen, MapScreen};

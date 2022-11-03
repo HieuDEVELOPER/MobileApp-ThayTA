@@ -1,60 +1,103 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import { HomeScreen, DiabetesScreen, ProfileScreen} from '../screens';
-
-
-
+import { HomeScreen, DiabetesScreen, ProfileScreen, MapScreen} from '../screens';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import {
+  faHome, faPlus, faUser, faMapLocationDot
+} from '@fortawesome/free-solid-svg-icons';
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  ScrollView,
+  Image,
+} from 'react-native';
 const Tab = createBottomTabNavigator();
 
 export default function MyTabs() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="home" component={HomeScreen} />
-      <Tab.Screen name="diabetes" component={DiabetesScreen} />
-      <Tab.Screen name="Myprofile" component={ProfileScreen} />
+    <Tab.Navigator
+      tabBarOptions={{showLabel: false}}
+      screenOptions={{
+        tabBarStyle: {
+          position: 'absolute',
+          // bottom: 20,
+          // left: 15,
+          // right: 15,
+          elevation: 0,
+          backgroundColor: '#7DE5ED',
+          borderRadius: 15,
+          height: 75,
+        },
+      }}>
+      <Tab.Screen
+        name="home"
+        component={HomeScreen}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <View style={{alignItems: 'center', justifyContent: 'center'}}>
+              <FontAwesomeIcon
+                icon={faHome}
+                size={24}
+                resizeMode="contain"
+                color={focused ? '#5837D0' : '#5DA7DB'}
+              />
+              <Text>Home</Text>
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="diabetes"
+        component={DiabetesScreen}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <View style={{alignItems: 'center', justifyContent: 'center'}}>
+              <FontAwesomeIcon
+                icon={faPlus}
+                size={45}
+                resizeMode="contain"
+                color={focused ? '#5837D0' : '#5DA7DB'}
+              />
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Myprofile"
+        component={ProfileScreen}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <View style={{alignItems: 'center', justifyContent: 'center'}}>
+              <FontAwesomeIcon
+                icon={faUser}
+                size={24}
+                resizeMode="contain"
+                color={focused ? '#5837D0' : '#5DA7DB'}
+              />
+              <Text>My Profile</Text>
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Map"
+        component={MapScreen}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <View style={{alignItems: 'center', justifyContent: 'center'}}>
+              <FontAwesomeIcon
+                icon={faMapLocationDot}
+                size={24}
+                resizeMode="contain"
+                color={focused ? '#5837D0' : '#5DA7DB'}
+              />
+              <Text>Map</Text>
+            </View>
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 }
 
-const styles = {
-  container: {
-    flex: 1,
-    marginTop: 8,
-    backgroundColor: 'grey',
-  },
-  box: {
-    width: 50,
-    height: 50,
-  },
-  row: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  button: {
-    paddingHorizontal: 8,
-    paddingVertical: 6,
-    borderRadius: 4,
-    backgroundColor: 'oldlace',
-    alignSelf: 'flex-start',
-    marginHorizontal: '1%',
-    marginBottom: 6,
-    minWidth: '48%',
-    textAlign: 'center',
-  },
-  selected: {
-    backgroundColor: 'coral',
-    borderWidth: 0,
-  },
-  buttonLabel: {
-    fontSize: 12,
-    fontWeight: '500',
-    color: 'coral',
-  },
-  selectedLabel: {
-    color: 'white',
-  },
-  label: {
-    textAlign: 'center',
-    marginBottom: 10,
-    fontSize: 24,
-  },
-};
