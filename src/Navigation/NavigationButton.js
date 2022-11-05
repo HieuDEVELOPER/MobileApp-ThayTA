@@ -17,13 +17,10 @@ const Tab = createBottomTabNavigator();
 export default function MyTabs() {
   return (
     <Tab.Navigator
-      tabBarOptions={{showLabel: false}}
       screenOptions={{
         tabBarStyle: {
           position: 'absolute',
-          // bottom: 20,
-          // left: 15,
-          // right: 15,
+          
           elevation: 0,
           backgroundColor: '#7DE5ED',
           borderRadius: 15,
