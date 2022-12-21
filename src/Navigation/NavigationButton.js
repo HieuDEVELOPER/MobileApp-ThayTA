@@ -1,17 +1,19 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import { HomeScreen, DiabetesScreen, ProfileScreen, MapScreen} from '../screens';
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import {
-  faHome, faPlus, faUser, faMapLocationDot
+  faHome,
+  faMapLocationDot,
+  faPlus,
+  faUser,
 } from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {Text, View} from 'react-native';
 import {
-  View,
-  Text,
-  TextInput,
-  StyleSheet,
-  ScrollView,
-  Image,
-} from 'react-native';
+  DiabetesScreen,
+  FlatListScreen,
+  HomeScreen,
+  MapScreen,
+  ProfileScreen,
+} from '../screens';
 const Tab = createBottomTabNavigator();
 
 export default function MyTabs() {
@@ -20,7 +22,7 @@ export default function MyTabs() {
       screenOptions={{
         tabBarStyle: {
           position: 'absolute',
-          
+
           elevation: 0,
           backgroundColor: '#7DE5ED',
           borderRadius: 15,
@@ -94,7 +96,24 @@ export default function MyTabs() {
           ),
         }}
       />
+
+      <Tab.Screen
+        name="Flat"
+        component={FlatListScreen}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <View style={{alignItems: 'center', justifyContent: 'center'}}>
+              <FontAwesomeIcon
+                icon={faMapLocationDot}
+                size={24}
+                resizeMode="contain"
+                color={focused ? '#5837D0' : '#5DA7DB'}
+              />
+              <Text>Map</Text>
+            </View>
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 }
-
