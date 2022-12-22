@@ -3,6 +3,7 @@ import {
   faMapLocationDot,
   faPlus,
   faUser,
+  faList,
 } from '@fortawesome/free-solid-svg-icons';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -104,12 +105,12 @@ export default function MyTabs() {
           tabBarIcon: ({focused}) => (
             <View style={{alignItems: 'center', justifyContent: 'center'}}>
               <FontAwesomeIcon
-                icon={faMapLocationDot}
+                icon={faList}
                 size={24}
                 resizeMode="contain"
                 color={focused ? '#5837D0' : '#5DA7DB'}
               />
-              <Text>Map</Text>
+              <Text>Flat</Text>
             </View>
           ),
         }}
